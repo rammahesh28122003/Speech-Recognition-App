@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Speech Recognition App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family:'Lato',sans-serif;
+    background-image:url(data:image/jpeg;base64,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);
+    background-size:cover;
+    background-repeat:no-repeat ;
+}
+
+
+.container {
+    text-align: center;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="file"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.result {
+    margin-top: 30px;
+    text-align: left;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+form[action="/download"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form[action="/download"] button {
+    margin-top: 10px;
+    background-color: #28a745;
+}
+
+form[action="/download"] button:hover {
+    background-color: #218838;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Speech Recognition App</h1>
+        <form action="/recognize" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".wav, .mp3" required>
+            <button type="submit">Recognize</button>
+        </form>
+        {% if recognition_result %}
+        <div class="result">
+            <h2>Recognition Result:</h2>
+            <p>{{ recognition_result }}</p>
+            <form action="/download" method="POST">
+                <input type="hidden" name="text" value="{{ recognition_result }}">
+                <button type="submit">Download Result</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
